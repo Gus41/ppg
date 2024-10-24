@@ -4,7 +4,7 @@ import * as cheerio from 'cheerio';
 
 async function ProccesIsUp(url) {
     try {
-      const response = await axios.get(url);
+      await axios.get(url);
       return true;
     } catch (error) {
       if (error.response) {
