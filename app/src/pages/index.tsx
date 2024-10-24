@@ -19,13 +19,21 @@ export default function Home() {
         const response = await fetch('/api/scrap');
         const result: ApiResponse = await response.json();
         setData(result.data);
-      } catch (error: any) {
-        console.error('Erro ao buscar os dados:', error.message);
+      } catch (error) {
+        handleError(error);
       }
     }
 
     fetchData();
   }, []);
+
+  function handleError(error: unknown) {
+    if (error instanceof Error) {
+      console.error('Erro ao buscar os dados:', error.message);
+    } else {
+      console.error('Erro desconhecido:', error);
+    }
+  }
 
   function renderProgram() {
     if (data) {
