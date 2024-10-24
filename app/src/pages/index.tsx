@@ -55,6 +55,7 @@ export default function Home() {
     <div className='ml-2 mb-2'>
       <h1 className='mb-5'>Datas Scraped:</h1>
       <div className='flex flex-col gap-2'>
+        <p>Atualmente: {data?.length} processos ativos</p>
         {data ? renderProgram() : 'Carregando...'}
       </div>
     </div>
